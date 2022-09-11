@@ -10,7 +10,7 @@ export const BookList = () => {
   const [searchParams]= useSearchParams()
   const dispatch = useDispatch();
   const location = useLocation()
-  console.log(location)
+  // console.log(location)
 
   useEffect(() => {
     if (location || books.length === 0) {
@@ -22,7 +22,7 @@ export const BookList = () => {
           _order:sortBy,
         }
       }
-      console.log(getBooksParams)
+      // console.log(getBooksParams)
       dispatch(getBooks(getBooksParams));
     }
   }, [location.search]); //whenever location cahanges run useeffect logic

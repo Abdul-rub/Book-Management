@@ -1,17 +1,24 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../Redux/Auth/action'
+import {useNavigate,useLocation} from "react-router-dom"
 
 export const Login = () => {
-   const [email,setEmail] = useState('')
+   const [email,setEmail] = useState('eve.holt@reqres.in')
    const [password,setPassword]=useState('')
    const dispatch = useDispatch();
+   const navigate = useNavigate()
+   const location = useLocation()
+  //  console.log("Inside loginPage",location)
+   const comingFrom = location.state.data || "/";
 
    const handleSubmit=(e)=>{
       e.preventDefault();
       if(email && password){
         dispatch(login({email,password})).then((res)=>{
-          console.log('After Successful login',res)
+          // console.log('After Successful login',res)
+          navigate( comingFrom,{replace:true})
+
         })
       }
    }

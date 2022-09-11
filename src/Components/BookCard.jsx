@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 
 export const BookCard = ({bookData}) => {
   return (
@@ -8,6 +9,9 @@ export const BookCard = ({bookData}) => {
             <div>{bookData.book_name}</div>
             <div>{bookData.category}</div>
             <div>{bookData.release_year}</div>
+            <Link to={`/books/${bookData.id}/edit`}><button>Edit</button></Link>
+            <Link to={`/books/${bookData.id}`}><button>Single Page</button></Link>
+          
         </div>
     </div>
   )
